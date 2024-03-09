@@ -25,3 +25,22 @@ If you find this repository helpful in your work or research, we would greatly a
 We introduce a novel fair message passing method named BeMap. It creates a fair graph structure for each epoch by leveraging a balance-aware sampling strategy to balance the number of the 1-hop neighbors of each node among different demographic groups. The figure below gives an overview of the MESA framework.
 
 <img src="./BeMap.png" alt="Visualization of BeMap">
+
+## Requirement
+**Main dependencies**:
+- [Python](https://www.python.org/) (= 3.9)
+- [Pytorch](https://pytorch.org/) (= 2.1.0)
+- [dgl](https://www.dgl.ai/) (= 2.1.0)
+- [Pandas](https://pandas.pydata.org/) (= 2.2.1)
+- [Numpy](https://numpy.org/doc/stable/index.html#) (= 1.26.4)
+- [scikit-learn](https://scikit-learn.org/stable/index.html) (= 1.4.1)
+
+**To install requirements, run:**
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### 1. Preparation of data
