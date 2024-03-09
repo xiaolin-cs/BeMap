@@ -22,48 +22,12 @@ class GCN(nn.Module):
 
         self.gc1 = GraphConv(nfeat, nhid)
         self.gc2 = GraphConv(nhid, nclass)
-        # self.fc = nn.Linear(nhid, nclass)
-        # self.gc1 = GraphConvolution(nfeat, nhid)
-        # self.gc2 = GraphConvolution(nhid, nclass)
-        # self.gc2 = GraphConvolution(nhid, 2 * nhid)
-        # self.gc3 = GraphConvolution(2 * nhid, nclass)
         self.dropout = dropout
 
     def forward(self, g, x):
         x = F.relu(self.gc1(g, x))
         x = F.dropout(x, self.dropout, training=self.training)
         x = self.gc2(g, x)
-        # x = self.fc(x)
-        # x = F.dropout(x, self.dropout, training=self.training)
-        # x = self.gc3(x, adj)
-        # return F.log_softmax(x, dim=1)
-        return x
-
-
-class GCN_check(nn.Module):
-    def __init__(self, nfeat, nhid, nclass, dropout):
-        super(GCN_check, self).__init__()
-        print(nfeat, nhid, nclass, dropout)
-        self.gc1 = GraphConv(nfeat, nhid)
-        self.fc = nn.Linear(nhid, nclass)
-
-    def forward(self, g, x):
-        x = F.relu(self.gc1(g, x))
-        x = self.fc(x)
-        return x
-
-class GCN2_check(nn.Module):
-    def __init__(self, nfeat, nhid, nclass, dropout):
-        super(GCN2_check, self).__init__()
-        print(nfeat, nhid, nclass, dropout)
-        self.gc1 = GraphConv(nfeat, nhid, norm='both')
-        self.gc2 = GraphConv(nhid, nhid, norm='both')
-        self.fc = nn.Linear(nhid, nclass)
-
-    def forward(self, g, x):
-        x = F.relu(self.gc1(g, x))
-        x = F.relu(self.gc2(g, x))
-        x = self.fc(x)
         return x
 
 
@@ -110,26 +74,7 @@ class GCN_binary(nn.Module):
         x, _ = self.body(g, x)
         x = self.fc(x)
         return x
-
-
-# def GCN(nn.Module):
-class GCN_Body(nn.Module):
-    def __init__(self, nfeat, nhid, dropout):
-        super(GCN_Body, self).__init__()
-
-        self.gc1 = GraphConv(nfeat, nhid)
-        self.gc2 = GraphConv(nhid, nhid)
-        self.dropout = nn.Dropout(dropout)
-        self.retain_feats = []
-
-    def forward(self, g, x):
-        out = F.relu(self.gc1(g, x))
-        x = out
-        x = self.dropout(x)
-        x = self.gc2(g, x)
-        # x = self.dropout(x)
-        return x, out
-
+        
 
 class BeMap(nn.Module):
     def __init__(self, graph, attrs, num_layers, lam=0.5, beta=0.25, save_num=4):
