@@ -65,7 +65,7 @@ def main():
         label_number = 500
         sens_number = 200
         seed = 20
-        path = "../dataset/pokec/"
+        path = "./dataset/pokec/"
         test_idx = False
 
         adj, features, labels, idx_train, \
@@ -81,7 +81,7 @@ def main():
         label_number = 100
         sens_number = 50
         seed = 20
-        path = "../dataset/NBA"
+        path = "./dataset/NBA"
         test_idx = True
 
         adj, features, labels, idx_train, \
@@ -92,14 +92,14 @@ def main():
     # Load credit data
     elif args.dataset == 'credit':
         adj, features, labels, idx_train, idx_val, idx_test, sens, idx_sens_train = load_credit('credit',
-                                                                                                path='../dataset/credit',
+                                                                                                path='./dataset/credit',
                                                                                                 label_number=6000)
 
 
     # Load bail data
     elif args.dataset == 'bail':
         adj, features, labels, idx_train, idx_val, idx_test, sens, idx_sens_train = load_bail('bail',
-                                                                                              path='../dataset/bail',
+                                                                                              path='./dataset/bail',
                                                                                               label_number=100)
 
 
