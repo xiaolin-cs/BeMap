@@ -299,9 +299,9 @@ class BeMap_GCN(BeMap):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x, epoch):
-        if epoch == -1:
+        if epoch == -1:  # inference phase
             sg = self.graph
-        else:
+        else:  # training phase
             sg = self.get_subgraph(epoch)
         if self.use_cuda:
             sg = sg.to(torch.device('cuda'))
@@ -326,9 +326,9 @@ class BeMap_GAT(BeMap):
         self.use_cuda = use_cuda
 
     def forward(self, h, epoch):
-        if epoch == -1:
+        if epoch == -1:  # inference phase
             sg = self.graph
-        else:
+        else:  # training phase
             sg = self.get_subgraph(epoch)
         if self.use_cuda:
             sg = sg.to(torch.device('cuda'))
