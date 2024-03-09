@@ -50,6 +50,12 @@ For example, if we want to run BeMap on NBA dataset with GCN, we can excute the 
 python train_bemap.py --dataset nba --model gcn
 ```
 
+### 3. Experiment results
+
+Here is one example when we run BeMap on the Recidivism dataset with GCN:
+
+![results of Recidivism with GCN](./test.png)
+
 ## Cite Us
 If you find this repository helpful in your work or research, we would greatly appreciate citations to the following paper:
 
