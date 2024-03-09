@@ -22,7 +22,7 @@ If you find this repository helpful in your work or research, we would greatly a
 ```
 
 ## Background
-We introduce a novel fair message passing method named BeMap. It creates a fair graph structure for each epoch by leveraging a balance-aware sampling strategy to balance the number of the 1-hop neighbors of each node among different demographic groups. The figure below gives an overview of BeMap.
+We introduce a novel fair message passing method named BeMap. It creates a fair graph structure for each epoch by leveraging a balance-aware sampling strategy to balance the number of the 1-hop neighbors of each node among different demographic groups. The intuition of mitigating structural bias is to push the bias residual for all the nodes to converge at the same fair centroid. The figure below gives an overview of BeMap.
 
 <img src="./BeMap.png" alt="Visualization of BeMap">
 
