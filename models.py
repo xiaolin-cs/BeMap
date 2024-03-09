@@ -284,7 +284,6 @@ class BeMap_GAT(BeMap):
             sg = self.get_subgraph(epoch)
         if self.use_cuda:
             sg = sg.to(torch.device('cuda'))
-        # list of hidden representation at each layer (including the input layer)
 
         for i, conv in enumerate(self.layers):
             # print('i', i, h.shape)
@@ -293,4 +292,4 @@ class BeMap_GAT(BeMap):
                 h = F.dropout(h, self.dropout)
 
         h = self.fc(h)
-        return h  # score_over_layer
+        return h 
