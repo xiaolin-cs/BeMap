@@ -1,6 +1,6 @@
 # BeMap
-Balanced Message Passing for Fair Graph Neural Network
 
+BeMap: Balanced Message Passing for Fair Graph Neural Network (LOG 2023) [[Paper]](https://arxiv.org/pdf/2306.04107.pdf)
 ```bibtex
 @inproceedings{lin2023bemap,
   title={BeMap: Balanced Message Passing for Fair Graph Neural Network},
