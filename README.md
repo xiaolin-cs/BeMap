@@ -48,3 +48,16 @@ pip install -r requirements.txt
  - NBA is stored in [dataset/NBA](dataset/NBA) as nba.xxx, introduced by [Enyan Dai et al.](https://arxiv.org/abs/2009.01454).
  - Recidivism is stored in [dataset/bail](dataset/bail), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
  - Credit is stored in [dataset/credit](dataset/credit), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
+
+### 2. Running BeMap
+
+We can run BeMap by the following command:
+
+```bash
+python train_bemap.py --dataset dataset_name --model model_name
+```
+For example, if we want to run BeMap on NBA dataset with GCN, we can excute the following command:
+
+```bash
+python train_bemap.py --dataset nba --model gcn
+```
