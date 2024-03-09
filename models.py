@@ -176,14 +176,19 @@ class BeMap(nn.Module):
         random.seed(2 * epoch + 1)
         edge_idx_subgraph = []
         for i in range(int(self.graph.nodes().shape[0])):
-
+            
             s = int(self.neighbor_attrs[i])
             num_0, num_1 = len(self.neighbor[i][0]), len(self.neighbor[i][1])
+            # add self-loop for num_0_slf and num_1_slf
             num_0_slf = num_0 if s else num_0 + 1
             num_1_slf = num_1 + 1 if s else num_1
-            if num_0 == 0 and num_1 == 0:  # no neighbors, then add self loop
+            
+            if num_0 == 0 and num_1 == 0:  
+                # no neighbors, then add self loop
                 edge_idx_subgraph.append(self.edges_dict[str(i) + '/' + str(i)])
-            elif num_0_slf == 0:  # all the neighbors are from the group of 1
+                
+            elif num_0_slf == 0:  
+                # all the neighbors are from the group of 1
                 k = min(max(self.save_num, int((num_1 + 3) * self.beta)), num_1)
                 neigh_set = np.random.choice(np.arange(num_1), size=k, replace=False, p=self.neigh_sp_val[i][1])
                 qualify_neighbor = np.array(self.neighbor[i][1])[neigh_set].tolist()
@@ -191,7 +196,8 @@ class BeMap(nn.Module):
                 assert len(qualify_neighbor) > 0
                 edge_idx_subgraph.extend([self.edges_dict[str(i) + '/' + str(v)] for v in qualify_neighbor])
 
-            elif num_1_slf == 0:  # all the neighbors are from the group of 0
+            elif num_1_slf == 0:  
+                # all the neighbors are from the group of 0
                 k = min(max(self.save_num, int((num_0 + 3) * self.beta)), num_0)
                 neigh_set = np.random.choice(np.arange(num_0), size=k, replace=False, p=self.neigh_sp_val[i][0])
                 qualify_neighbor = np.array(self.neighbor[i][0])[neigh_set].tolist()
@@ -199,8 +205,8 @@ class BeMap(nn.Module):
                 assert len(qualify_neighbor) > 0
                 edge_idx_subgraph.extend([self.edges_dict[str(i) + '/' + str(v)] for v in qualify_neighbor])
 
-            else:  # the neighbors are from both groups
-                # todo: min_num = min(num_0, num_1)
+            else:
+                # the neighbors are from both groups
                 max_num = min(num_0 / (self.lam + 1e-4), num_1 / (1.0001-self.lam))
                 min0 = round(max_num * self.lam)
                 min1 = round(max_num * (1-self.lam))
@@ -225,6 +231,7 @@ class BeMap(nn.Module):
                     assert len(neigh_set) > 0, 'error: empty set of neighbors with s=1, set is ' + str(neigh_set)
                     qual1 = np.array(self.neighbor[i][1])[neigh_set].tolist()
 
+                # add self-loop and merge
                 qualify_neighbor = qual0 + qual1 + [i]
                 assert len(qualify_neighbor) > 0
                 edge_idx_subgraph.extend([self.edges_dict[str(i) + '/' + str(v)] for v in qualify_neighbor])
