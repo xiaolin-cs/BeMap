@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-### 1. Data sets
+### 1. Datasets
  - Pokec_z is stored in [dataset/pokec](dataset/pokec) as region_job.xxx, introduced by [Enyan Dai et al.](https://arxiv.org/abs/2009.01454)
  - NBA is stored in [dataset/NBA](dataset/NBA) as nba.xxx, introduced by [Enyan Dai et al.](https://arxiv.org/abs/2009.01454).
  - Recidivism is stored in [dataset/bail](dataset/bail), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
