@@ -29,12 +29,11 @@ parser.add_argument('--hidden', type=int, default=128,
                     help='Number of hidden units.')
 parser.add_argument('--dropout', type=float, default=0.5,
                     help='Dropout rate (1 - keep probability).')
-parser.add_argument('--save_dir', type=str, default='')
 parser.add_argument('--beta', type=float, default=0.25)
 parser.add_argument('--lam', type=float, default=0.5)
 parser.add_argument('--save_num', type=int, default=4)
 parser.add_argument('--dataset', type=str, default='pokec_z',
-                    choices=['pokec_z', 'pokec_n', 'nba', 'bail', 'credit', 'german'])
+                    choices=['pokec_z', 'nba', 'bail', 'credit'])
 parser.add_argument('--model', type=str, default='gcn', choices=['gcn', 'gat'])
 
 args = parser.parse_known_args()[0]
