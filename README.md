@@ -25,7 +25,7 @@ If you find this repository helpful in your work or research, we would greatly a
 ## Background
 We introduce a novel fair message passing method named BeMap. It creates a fair graph structure for each epoch by leveraging a balance-aware sampling strategy to balance the number of the 1-hop neighbors of each node among different demographic groups. The intuition of mitigating structural bias is to push the bias residual for all the nodes to converge at the same fair centroid. The figure below gives an overview of BeMap.
 
-<img src="./BeMap.png" alt="Visualization of BeMap">
+<img src="./figures/BeMap.png" alt="Visualization of BeMap">
 
 ## Requirement
 **Main dependencies**:
@@ -71,7 +71,7 @@ python train_bemap.py --dataset nba --model gcn
 
 Here is one example when we run BeMap on the Recidivism dataset with GCN:
 
-![results of Recidivism with GCN](./test.png)
+![results of Recidivism with GCN](./figures/test.png)
 
 
 ## Contact
