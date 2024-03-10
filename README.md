@@ -49,6 +49,10 @@ pip install -r requirements.txt
  - NBA is stored in [dataset/NBA](dataset/NBA) as nba.xxx, introduced by [Enyan Dai et al.](https://arxiv.org/abs/2009.01454).
  - Recidivism is stored in [dataset/bail](dataset/bail), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
  - Credit is stored in [dataset/credit](dataset/credit), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
+     - We can extract [credit.zip](dataset/credit_compressed/) using the following command:
+       ```bash
+       unzip -d ./dataset/credit ./dataset/credit_compressed/credit.zip
+       ```
 
 ### 2. Running BeMap
 
