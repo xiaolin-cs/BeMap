@@ -51,7 +51,7 @@ pip install -r requirements.txt
  - Credit is stored in [dataset/credit_compressed](dataset/credit_compressed), introduced by [Chirag Agarwa et al.](https://arxiv.org/pdf/2102.13186.pdf).
      - We can extract [credit.zip](dataset/credit_compressed/) using the following command:
        ```bash
-       unzip -d ./dataset/credit ./dataset/credit_compressed/credit.zip
+       unzip -d ./dataset ./dataset/credit_compressed/credit.zip
        ```
 
 ### 2. Running BeMap
