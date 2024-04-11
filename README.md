@@ -69,10 +69,17 @@ python train_bemap.py --dataset nba --model gcn
 
 ### 3. Experiment results
 
-Here is one example when we run BeMap on the Recidivism dataset with GCN:
+### an example when running BeMap on the Recidivism dataset with GCN:
 
 ![results of Recidivism with GCN](./figures/test.png)
 
+### Overall results on real-world datasets
+
+![overall results on four datasets](./figures/overall_results.png)
+
+### Ablation study on balance-aware sampling strategy
+
+![ablation study](./figures/abalation_study.png)
 
 ## Contact
 If you have any questions or want to use the code, feel free to contact:
